@@ -3,17 +3,18 @@ import sys
 from textual.app import App, ComposeResult
 from textual.reactive import reactive
 from textual.widget import Widget
-from textual.widgets import Input
+from textual.widgets import DataTable, Input
 
 from match import match
 
 
-class Matches(Widget):
+class Matches(DataTable):
 
     search = reactive("")
 
-    def render(self) -> str:
-        return match(self.search)
+    def watch_search(self, search) -> None:
+        self.clear()
+        self.add_rows(match(search))
 
 
 class Prompt(App):
@@ -21,6 +22,10 @@ class Prompt(App):
     def compose(self) -> ComposeResult:
         yield Input()
         yield Matches()
+
+    def on_mount(self) -> None:
+        table = self.query_one(DataTable)
+        table.add_columns("name", "score", "idx")
 
     def on_input_changed(self, event: Input.Changed) -> None:
         self.query_one(Matches).search = event.value
