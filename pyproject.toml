@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "fzm"
+version = "0.1.0"
+description = "Commandline fuzzy matcher"
+authors = ["windrim <martin.tr.allen@gmail.com>"]
+license = "GNU GPLv3"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+textual = "^0.10.1"
+
+[tool.poetry.group.dev.dependencies]
+pynvim = "^0.4.3"
+pdbpp = "^0.10.3"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
