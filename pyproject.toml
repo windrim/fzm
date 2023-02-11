@@ -9,10 +9,12 @@ readme = "README.md"
 [tool.poetry.dependencies]
 python = "^3.11"
 textual = "^0.10.1"
+rapidfuzz = "^2.13.7"
 
 [tool.poetry.group.dev.dependencies]
 pynvim = "^0.4.3"
 pdbpp = "^0.10.3"
+pandas = "^1.5.3"
 
 [build-system]
 requires = ["poetry-core"]
