@@ -24,6 +24,7 @@ def match(s: str) -> list[tuple]:
         process.extract(s, NAMES, scorer=fuzz.partial_ratio)
     ]
 
+
 def match_iter(s: str) -> Iterator[tuple[str, str, str]]:
     for result in process.extract_iter(s, NAMES, scorer=fuzz.ratio):
         yield result[0], str(result[1]), str(result[2])

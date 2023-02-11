@@ -2,10 +2,9 @@ import sys
 
 from textual.app import App, ComposeResult
 from textual.reactive import reactive
-from textual.widget import Widget
 from textual.widgets import DataTable, Input
 
-from match import match
+from fzm.match import match
 
 
 class Matches(DataTable):
@@ -34,6 +33,6 @@ class Prompt(App):
         sys.exit(0)
 
 
-if __name__ == "__main__":
+def main():
     app = Prompt()
     app.run()
